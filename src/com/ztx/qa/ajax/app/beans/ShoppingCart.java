@@ -1,5 +1,9 @@
 package com.ztx.qa.ajax.app.beans;
 
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,6 +54,7 @@ public class ShoppingCart {
         this.bookName = bookName;
     }
 
+    @JsonIgnore
     public Map<String, ShoppingCartItem> getItemMap() {
         return itemMap;
     }

@@ -33,7 +33,9 @@ public class AddToCartServlet extends HttpServlet {
 
         shoppingCart.addToCart(bookName, price);
 
-        /*{"bookName":bookName,"totalBookNumber":totalBookNumber,"totalBookMoney":totalBookMoney}*/
+        /*{"bookName":bookName,"totalBookNumber":totalBookNumber,"totalBookMoney":totalBookMoney}
+        * 正常写法
+        * */
         StringBuilder result = new StringBuilder();
         result.append("{")
                 .append("\"bookName\":" + "\"" + bookName + "\"")
@@ -43,7 +45,14 @@ public class AddToCartServlet extends HttpServlet {
                 .append("\"totalBookMoney\":" + shoppingCart.getTotalBookMoney())
                 .append("}");
 
+        /*
+        * jackson写法
+        * */
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        String result = objectMapper.writeValueAsString(shoppingCart);
+//        System.out.println(request);
+
         response.setContentType("text/javascript;charset=UTF-8");
-        response.getWriter().print(result.toString());
+        response.getWriter().print(result);
     }
 }
